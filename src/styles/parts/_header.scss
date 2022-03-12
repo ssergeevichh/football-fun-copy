@@ -130,14 +130,21 @@
         background-color: #fff;
         position: absolute;
         border: none;
-        color: #c2c2c2;
         border-left: 1px solid hsla(0, 0%, 76%, .2);
         transition: all .3s;
         border-radius: 0 4px 4px 0;
 
+        svg {
+            fill: #c2c2c2;
+            transition: all .3s;
+        }
+
         &:hover {
-            color: $main-color;
             border-left: 1px solid $main-color;
+            svg {
+                fill: $main-color;
+
+            }
         }
     }
 }

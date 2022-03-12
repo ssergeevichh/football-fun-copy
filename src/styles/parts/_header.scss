@@ -5,10 +5,17 @@
     }
 }
 
+.menu-wrapper {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .header-line {
-    position: fixed;
     display: flex;
     align-items: center;
+    flex-grow: 1;
     padding: 8px 0;
 }
 
@@ -144,6 +151,7 @@
     background-color: #eff1f6;
     display: flex;
     border-radius: $border-radius;
+    margin: 0;
 
     li {
         flex-grow: 1;

@@ -1,21 +1,191 @@
 .header {
-    &__logo {
+    &__logo-wrapper {
+        display: flex;
+        align-items: center;
         width: 142px;
         text-align: center;
     }
 }
 
-.menu-wrapper {
-    width: 100%;
+.mobile-menu {
+    z-index: 4;
     position: absolute;
+    background-color: #24263c;
+    padding: 10px 0 20px;
+    overflow-y: auto;
+    margin: 0;
+    height: calc(100vh - 64px);
+    top: 55px;
+    width: 300px;
+    max-width: 100%;
+    transition: all .3s;
+    opacity: 0;
+    visibility: hidden;
+
+    &__item {
+        &--bold {
+            font-weight: 700 !important;
+        }
+    }
+    
+    &::-webkit-scrollbar {
+        width: 5px;
+        background-color: #24263c;
+        border-radius: $border-radius;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: $main-color;
+        border-radius: 20px;
+        
+    }
+    
+    li {
+
+        transition: all .3s;
+        position: relative;
+
+        svg {
+            z-index: 1;
+            position: absolute;
+            top: 50%;
+            margin-left: 10px;
+            transform: translateY(-50%);
+            fill: rgb(214, 214, 214);
+        }
+
+        img {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 96%;
+            object-fit: contain;
+            padding: 10px;
+            background-color: #1e2032;
+            transition: all .3s;
+
+            &:hover {
+                background-color: #171826
+            }
+        }
+
+        &:hover {
+            background-color: #1c1e2f;
+
+            a {
+                color: $main-color;
+
+            }
+        }
+    }
+
+    a {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        padding: 14px 25px 14px 50px;
+        position: relative;
+        border-bottom: 1px solid hsla(0, 0%, 100%, .18);
+        transition: all .3s;
+    }
+}
+
+.mobile-menu-active {
+    top: 64px;
+    opacity: 1;
+    transition: all .3s;
+    visibility: visible;
+}
+.menu-close {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    left: 21px;
+    top: 13px;
+    transition: all .4s;
+    width: 1px;
+    padding: 5px 20px;
+    height: 40px;
+    align-items: center;
+    margin-left: auto;
+    visibility: hidden;
+    opacity: 0;
+
+
+    span {
+        transition: all 0.3s;
+        position: absolute;
+        background-color: $main-color;
+
+        &:first-child {
+            transform: rotate(45deg);
+            width: 3px;
+            height: 72%;
+        }
+
+        &:last-child {
+            transform: rotate(-45deg);
+            width: 3px;
+            height: 72%;
+        }
+    }
+}
+
+.menu-close-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu-overlay {
+    display: block;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    background-color: #00000048;
     top: 0;
     left: 0;
+    z-index: 2;
+    opacity: 0;
+    transition: all .3s;
+    visibility: hidden;
+}
+
+.hamburger {
+    visibility: visible;
+    opacity: 1;
+    img {
+        margin-right: 15px;
+        width: 35px;
+    }
+}
+.hamburger-non-active {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.menu-wrapper {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    z-index: 1;
+    left: 0;
+    transition: all .3s;
+}
+
+.scrolled-menu {
+    border-bottom: 1px solid #0000001a;
+    box-shadow: 0px -2px 8px -5px #2b2b2b;
 }
 
 .header-line {
     display: flex;
     align-items: center;
     flex-grow: 1;
+    z-index: 1;
     padding: 8px 0;
 }
 
@@ -141,6 +311,7 @@
 
         &:hover {
             border-left: 1px solid $main-color;
+
             svg {
                 fill: $main-color;
 
@@ -181,9 +352,22 @@
 }
 
 .popular-clubs {
+    overflow-x: auto;
     display: flex;
     justify-content: center;
     padding: 0 24px;
+
+    &::-webkit-scrollbar {
+        height: 3px;
+        background-color: #eeeeee;
+        border-radius: $border-radius;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $main-color;
+        border-radius: $border-radius;
+
+    }
 
     a {
         position: relative;
@@ -214,5 +398,29 @@
                 width: 50%;
             }
         }
+    }
+}
+
+@media(max-width:1200px) {
+    .hamburger {
+        display: block;
+    }
+
+    .header-line {
+        justify-content: space-between;
+    }
+
+    .header__logo-wrapper {
+        width: auto;
+    }
+
+    .menu-list {
+        display: none;
+    }
+}
+
+@media(max-width:1100px) {
+    .popular-clubs {
+        justify-content: start;
     }
 }

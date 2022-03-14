@@ -66,6 +66,7 @@ document.addEventListener('click', ({target}) => {
 
 //mobile searching block
 mobileSearchBtn.addEventListener('click', () => {
+    searchInput.setAttribute("placeholder", "Поиск")
     hideElement(mobileSearchBtn)
     showElement(searchBlock)
     document.addEventListener('click', ({target}) => {

@@ -3,7 +3,6 @@
 @import 'bootstrap/dist/css/bootstrap-reboot.css';
 
 @import 'base/variables';
-// @import 'base/icomoon.scss';
 
 @import 'parts/header';
 
@@ -27,4 +26,10 @@ a {
 
 li {
   list-style-type: none;
+}
+
+@media(max-width:575px) {
+  .container {
+    padding: 0 8px;
+  }
 }

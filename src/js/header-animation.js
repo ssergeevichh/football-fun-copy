@@ -1,11 +1,11 @@
 const searchInput = document.querySelector('.header-search__input')
 const searchBtn = document.querySelector('.icon-search')
 const menu = document.querySelector('.menu-wrapper')
-const menuBtn = document.querySelector('.hamburger')
+const menuBtn = document.querySelector('.icon-hamburger-menu')
 const menuLayer = document.querySelector('.menu-overlay')
 const mobileMenu = document.querySelector('.mobile-menu-wrapper')
 const closeMenuBtn = document.querySelector('.menu-close')
-const mobileCloseBtn = document.querySelector('.header-line-mobile__arrow')
+const mobileCloseBtn = document.querySelector('.icon-arrow-left-menu')
 const mobileSearchBtn = document.querySelector('.icon-search-mobile')
 const searchBlock = document.querySelector('.header-search')
 

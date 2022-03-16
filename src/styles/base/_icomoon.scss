@@ -1,0 +1,175 @@
+@font-face {
+  font-family: 'icomoon';
+  src: url('fonts/icomoon.eot?tdsjl3');
+  src: url('fonts/icomoon.eot?tdsjl3#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?tdsjl3') format('truetype'),
+    url('fonts/icomoon.woff?tdsjl3') format('woff'),
+    url('fonts/icomoon.svg?tdsjl3#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-left-menu:before {
+  content: "\e908";
+}
+
+.icon-small-arrow-right:before {
+  content: "\e900";
+}
+
+.icon-small-arrow-left:before {
+  content: "\e901";
+}
+
+.icon-arrow-scroll-top:before {
+  content: "\e902";
+}
+
+.icon-view-eye:before {
+  content: "\e903";
+}
+
+.icon-trophy:before {
+  content: "\e904";
+}
+
+.icon-search-icon:before {
+  content: "\e905";
+}
+
+.icon-hamburger-menu:before {
+  content: "\e906";
+}
+
+.icon-comment:before {
+  content: "\e907";
+}
+
+.icon-calendar:before {
+  content: "\e909";
+}
+
+.icon-arrow-left-menu {
+  font-size: 50px;
+  background-color: $main-color;
+  color: #fff;
+}
+
+.icon-trophy {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  margin-left: 13px;
+  transform: translateY(-50%);
+  font-size: 25px;
+  color: rgb(214, 214, 214);
+}
+
+.mobile-menu {
+
+  .icon-small-arrow-right {
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 15px 10px;
+    color: #fff;
+    font-size: 20px;
+    background-color: #1e2032;
+    transition: all .3s;
+
+    &:hover {
+      background-color: #171826
+    }
+  }
+}
+
+.icon-hamburger-menu {
+  font-size: 30px;
+  color: $main-color;
+  display: none;
+  visibility: visible;
+  opacity: 1;
+  margin-right: 15px;
+}
+
+.icon-search {
+  color: #c2c2c2;
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1px;
+  padding: 10.5px 10px;
+  background-color: #fff;
+  position: absolute;
+  border: none;
+  border-left: 1px solid hsla(0, 0%, 76%, .2);
+  transition: all .3s;
+  border-radius: 0 4px 4px 0;
+
+  &:hover {
+    border-left: 1px solid $main-color;
+    color: $main-color;
+  }
+}
+
+.icon-search__active {
+  padding: 10.5px 5px;
+}
+
+.icon-search-mobile {
+  position: absolute;
+  transition: all .3s;
+  right: 16px;
+  display: none;
+}
+
+@media(max-width:1200px) {
+  .icon-hamburger-menu {
+    display: block;
+  }
+}
+
+@media(max-width:575px) {
+  .icon-hamburger-menu {
+    margin-right: 8px;
+  }
+
+  .icon-search {
+    padding: 7px 10px;
+    right: 11px;
+  }
+  
+  .icon-search {
+    &__active {
+      padding: 7px 5px;
+    }
+  }
+  
+  .icon-search-mobile {
+    cursor: pointer;
+    font-size: 30px;
+    display: block;
+    color: $main-color;
+    padding: 10px;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+}

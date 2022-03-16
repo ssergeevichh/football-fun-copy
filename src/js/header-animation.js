@@ -26,9 +26,9 @@ function showElement(...elements) {
 // fixed menu
 window.addEventListener('scroll', () => {
     if (window.scrollY > 1) {
-        menu.classList.add('scrolled-menu')
+        menu.classList.add('menu-wrapper--active')
     } else {
-        menu.classList.remove('scrolled-menu')
+        menu.classList.remove('menu-wrapper--active')
     }
 
 })

@@ -158,12 +158,15 @@
     z-index: 1;
     left: 0;
     transition: all .3s;
+
+    &--active {
+        border-bottom: 1px solid #0000001a;
+        box-shadow: 0px -2px 8px -5px #2b2b2b;
+    }
 }
 
-.scrolled-menu {
-    border-bottom: 1px solid #0000001a;
-    box-shadow: 0px -2px 8px -5px #2b2b2b;
-}
+ 
+
 
 .header-line {
     display: flex;

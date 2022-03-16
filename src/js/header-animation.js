@@ -8,6 +8,8 @@ const closeMenuBtn = document.querySelector('.menu-close')
 const mobileCloseBtn = document.querySelector('.icon-arrow-left-menu')
 const mobileSearchBtn = document.querySelector('.icon-search-mobile')
 const searchBlock = document.querySelector('.header-search')
+const subMenuTour = document.querySelector('.tour')
+const subMenuNews = document.querySelector('.news')
 
 function hideElement(...elements) {
     for (let elem of elements) {
@@ -62,6 +64,20 @@ document.addEventListener('click', ({target}) => {
         
         hideElement(closeMenuBtn, menuLayer)
     }
+})
+
+//internal menu's
+document.addEventListener('click', ({target}) => {
+    if(target.dataset.tour) {
+        showElement(subMenuTour)
+    } 
+    else if (target.dataset.news) {
+        showElement(subMenuNews)
+    }
+    if(target.classList.contains('back')) {
+        hideElement(subMenuTour, subMenuNews)
+    }
+
 })
 
 //mobile searching block

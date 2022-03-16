@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src: url('fonts/icomoon.eot?tdsjl3');
-  src: url('fonts/icomoon.eot?tdsjl3#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?tdsjl3') format('truetype'),
-    url('fonts/icomoon.woff?tdsjl3') format('woff'),
-    url('fonts/icomoon.svg?tdsjl3#icomoon') format('svg');
+  src: url('/fonts/icomoon.eot?tdsjl3');
+  src: url('/fonts/icomoon.eot?tdsjl3#iefix') format('embedded-opentype'),
+    url('/fonts/icomoon.ttf?tdsjl3') format('truetype'),
+    url('/fonts/icomoon.woff?tdsjl3') format('woff'),
+    url('/fonts/icomoon.svg?tdsjl3#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -100,6 +100,18 @@
   }
 }
 
+.mobile-sub-menu {
+  .icon-small-arrow-left {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    margin-left: 13px;
+    transform: translateY(-50%);
+    font-size: 25px;
+    color: rgb(214, 214, 214);
+  }
+}
+
 .icon-hamburger-menu {
   font-size: 30px;
   color: $main-color;
@@ -140,7 +152,7 @@
   display: none;
 }
 
-@media(max-width:1200px) {
+@media(max-width:991px) {
   .icon-hamburger-menu {
     display: block;
   }

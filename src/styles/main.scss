@@ -3,7 +3,7 @@
 @import 'bootstrap/dist/css/bootstrap-reboot.css';
 
 @import 'base/variables';
-@import 'base/_icomoon';
+@import 'base/_icons';
 
 @import 'parts/header';
 
@@ -27,6 +27,12 @@ a {
 
 li {
   list-style-type: none;
+}
+
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 @media(max-width:575px) {

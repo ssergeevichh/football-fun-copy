@@ -13,6 +13,7 @@
 
 
 .mobile-menu {
+    position: relative;
     padding: 10px 0 20px;
     margin: 0;
 
@@ -50,7 +51,7 @@
         }
     }
 
-    li {
+    &__li {
         transition: all .3s;
         position: relative;
 
@@ -261,7 +262,8 @@
 .mobile-sub-menu {
     opacity: 0;
     visibility: hidden;
-    position: fixed;
+    position: absolute;
+    // height: calc(100vh - 50px);
     height: 100vh;
     top: 0;
     padding: 10px 0 20px;
@@ -271,6 +273,10 @@
     overflow-y: scroll;
     transition: all .3s;
 
+    li {
+        position: relative;
+    }
+    
     &__item {
         padding: 14px 25px 14px 10px !important;
         &:hover {

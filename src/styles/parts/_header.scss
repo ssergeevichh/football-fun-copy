@@ -13,7 +13,7 @@
 
 
 .mobile-menu {
-    position: relative;
+    // position: relative;
     padding: 10px 0 20px;
     margin: 0;
 
@@ -257,6 +257,10 @@
         text-align: left;
         font-weight: 400;
     }
+}
+
+.mobile-sub-menu-wrapper{
+    position: relative;
 }
 
 .mobile-sub-menu {

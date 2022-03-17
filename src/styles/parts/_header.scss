@@ -261,10 +261,6 @@
     }
 }
 
-.mobile-sub-menu-wrapper {
-    position: relative;
-}
-
 .mobile-sub-menu {
     opacity: 0;
     visibility: hidden;
@@ -508,6 +504,7 @@
     }
 
     .mobile-menu-wrapper {
+        max-height: auto;
         top: 50px;
         width: 100%;
         left: -20px;

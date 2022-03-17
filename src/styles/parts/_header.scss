@@ -13,10 +13,22 @@
 
 
 .mobile-menu {
-    // position: relative;
     padding: 10px 0 20px;
     margin: 0;
+    overflow-y: auto;
+    height: 100vh;
+    
+    &::-webkit-scrollbar {
+        width: 5px;
+        background-color: #24263c;
+        border-radius: $border-radius;
+    }
 
+    &::-webkit-scrollbar-thumb {
+        background-color: $main-color;
+        border-radius: 20px;
+
+    }
     img {
         cursor: pointer;
         position: absolute;
@@ -65,7 +77,6 @@
     z-index: 4;
     position: fixed ;
     background-color: #24263c;
-    overflow-y: auto;
     margin: 0;
     height: calc(100vh - 64px);
     top: 55px;
@@ -82,17 +93,6 @@
         }
     }
 
-    &::-webkit-scrollbar {
-        width: 5px;
-        background-color: #24263c;
-        border-radius: $border-radius;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: $main-color;
-        border-radius: 20px;
-
-    }
 
 }
 

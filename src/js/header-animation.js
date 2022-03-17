@@ -69,15 +69,12 @@ document.addEventListener('click', ({target}) => {
 //internal menu's
 document.addEventListener('click', ({target}) => {
     if(target.dataset.tour) {
-        mobileMenu.style.overflowY = 'hidden'
         showElement(subMenuTour)
     } 
     else if (target.dataset.news) {
-        mobileMenu.style.overflowY = 'hidden'
         showElement(subMenuNews)
     }
     if(target.classList.contains('back')) {
-        mobileMenu.style.overflowY = 'auto'
         hideElement(subMenuTour, subMenuNews)
     }
 

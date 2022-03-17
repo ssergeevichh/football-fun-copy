@@ -86,7 +86,6 @@
     transition: all .3s;
     opacity: 0;
     visibility: hidden;
-    max-height: 489px;
 
     &__item {
         &--bold {
@@ -265,7 +264,7 @@
     opacity: 0;
     visibility: hidden;
     position: absolute;
-    height: calc(100vh - 50px);
+    height: 100%;
     top: 0;
     padding: 10px 0 20px;
     background-color: #24263c;
@@ -404,6 +403,9 @@
 
         }
     }
+    .mobile-menu-wrapper {
+        max-height: 489px;
+    }
 }
 
 @media(max-width:1200px) {
@@ -504,11 +506,14 @@
     }
 
     .mobile-menu-wrapper {
-        max-height: auto;
         top: 50px;
         width: 100%;
         left: -20px;
         height: calc(100vh - 50px);
+    }
+    .sub-active {
+        top: 0;
+        height: 100vh;
     }
 
     .mobile-menu-active {

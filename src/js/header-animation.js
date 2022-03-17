@@ -67,14 +67,19 @@ document.addEventListener('click', ({target}) => {
 })
 
 //internal menu's
+//.sub-active for full screen
 document.addEventListener('click', ({target}) => {
     if(target.dataset.tour) {
+        mobileMenu.classList.add('sub-active')
         showElement(subMenuTour)
     } 
     else if (target.dataset.news) {
+        mobileMenu.classList.add('sub-active')
         showElement(subMenuNews)
     }
     if(target.classList.contains('back')) {
+        mobileMenu.classList.remove('sub-active')
+        mobileMenu.style.top = ''
         hideElement(subMenuTour, subMenuNews)
     }
 

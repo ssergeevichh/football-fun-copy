@@ -16,8 +16,8 @@
     padding: 10px 0 20px;
     margin: 0;
     overflow-y: auto;
-    height: 100vh;
-    
+    height: calc(100vh - 64px);
+
     &::-webkit-scrollbar {
         width: 5px;
         background-color: #24263c;
@@ -29,6 +29,7 @@
         border-radius: 20px;
 
     }
+
     img {
         cursor: pointer;
         position: absolute;
@@ -56,7 +57,7 @@
         border-bottom: 1px solid hsla(0, 0%, 100%, .18);
         transition: all .3s;
     }
-    
+
     &__item {
         &:hover {
             color: $main-color;
@@ -75,7 +76,7 @@
 
 .mobile-menu-wrapper {
     z-index: 4;
-    position: fixed ;
+    position: fixed;
     background-color: #24263c;
     margin: 0;
     height: calc(100vh - 64px);
@@ -168,7 +169,7 @@
     }
 }
 
- 
+
 
 
 .header-line {
@@ -177,6 +178,7 @@
     flex-grow: 1;
     z-index: 1;
     padding: 8px 0;
+
     &__logo {
         width: 140px;
     }
@@ -259,7 +261,7 @@
     }
 }
 
-.mobile-sub-menu-wrapper{
+.mobile-sub-menu-wrapper {
     position: relative;
 }
 
@@ -279,9 +281,10 @@
     li {
         position: relative;
     }
-    
+
     &__item {
         padding: 14px 25px 14px 10px !important;
+
         &:hover {
             color: $main-color !important;
             background-color: #1c1e2f !important;
@@ -469,6 +472,8 @@
 
     .mobile-menu {
         padding: 0;
+        height: calc(100vh - 50px);
+
     }
 
     .header-line {

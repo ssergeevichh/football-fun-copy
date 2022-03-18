@@ -228,6 +228,7 @@
         opacity: 0;
         visibility: hidden;
         margin-top: 10px;
+        display: none;
 
         &--active {
             border-radius: $border-radius;

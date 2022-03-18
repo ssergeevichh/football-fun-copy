@@ -11,19 +11,7 @@ const searchBlock = document.querySelector('.header-search')
 const subMenuTour = document.querySelector('.tour')
 const subMenuNews = document.querySelector('.news')
 
-function hideElement(...elements) {
-    for (let elem of elements) {
-        elem.style.opacity = 0
-        elem.style.visibility = 'hidden'
-    }
-}
-
-function showElement(...elements) {
-    for (let elem of elements) {
-        elem.style.opacity = 1
-        elem.style.visibility = 'visible'
-    }
-}
+import {hideElement, showElement} from './main'
 
 // fixed menu
 window.addEventListener('scroll', () => {

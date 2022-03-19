@@ -17,6 +17,12 @@
     &__btn {
         margin-top: 16px;
     }
+
+    .splide {
+        &__track {
+            height: 100%;
+        }
+    }
 }
 
 .slider-list {
@@ -28,7 +34,6 @@
 .slider-item {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     height: 100%;
 
     &__link {
@@ -57,22 +62,23 @@
     }
 
     &:hover {
-        .content-wrapper {
-            box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 13%);
-        }
+        box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 13%);
     }
 }
 
 .content-wrapper {
+    width: 100%;
     transition: all .3s;
     display: flex;
     flex-direction: column;
-    padding: 15px;
     flex-grow: 1;
+    padding: 15px 0;
     border-top: none;
     border-radius: 0 0 4px 4px;
     box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 6%);
+
 }
+
 
 .owner-statistics {
     display: flex;
@@ -318,4 +324,8 @@
         width: 36px;
         object-fit: cover;
     }
+}
+
+.splide {
+    height: 100%;
 }

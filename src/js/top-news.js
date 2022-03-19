@@ -22,3 +22,9 @@ document.addEventListener('click', ({ target }) => {
 })
 
 //slider
+document.addEventListener('DOMContentLoaded', function () {
+    var splide = new Splide('#slider', {
+        perPage: 1,
+    });
+    splide.mount();
+});

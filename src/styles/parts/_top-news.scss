@@ -1,14 +1,16 @@
 .top-news {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
     grid-template-rows: 590px;
     column-gap: 24px;
     padding-bottom: 10px !important;
 }
 
+
 .top-item {
     display: flex;
     flex-direction: column;
+    transition: all .3s;
 
     &__title {
         margin-bottom: 20px;
@@ -18,12 +20,48 @@
         margin-top: 16px;
     }
 
-    .splide {
-        &__track {
+
+}
+
+.splide {
+    position: relative;
+    transition: all .3s;
+    box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 6%);
+    &:hover {
+        box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 13%);
+    
+    }
+    &__track {
+        &__wrapper {
             height: 100%;
+
+        }
+    }
+    &__arrows {
+        z-index: 1;
+        width: 100%;
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        top: 27%;
+    }
+    &__arrow {
+        padding: 0 5px;
+        width: auto;
+        height: auto;
+        color: #fff;
+        font-size: 30px;
+        opacity: 1;
+        background: none;
+        &--prev {
+            left: 10px;
+        }
+        &--next {
+            right: 10px;
         }
     }
 }
+
 
 .slider-list {
     padding: 0;
@@ -35,6 +73,8 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    z-index: 4;
+
 
     &__link {
         position: relative;
@@ -49,7 +89,6 @@
             position: absolute;
             height: 100%;
             width: 100%;
-            border-radius: 4px 4px 0 0;
         }
     }
 
@@ -57,12 +96,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 4px 4px 0 0;
 
-    }
-
-    &:hover {
-        box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 13%);
     }
 }
 
@@ -72,10 +106,9 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    padding: 15px 0;
+    padding: 15px;
     border-top: none;
     border-radius: 0 0 4px 4px;
-    box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 6%);
 
 }
 

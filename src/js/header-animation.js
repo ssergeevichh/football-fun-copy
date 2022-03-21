@@ -11,7 +11,7 @@ const searchBlock = document.querySelector('.header-search')
 const subMenuTour = document.querySelector('.tour')
 const subMenuNews = document.querySelector('.news')
 
-import {hideElement, showElement} from './main'
+import {hideElement, showElement} from './reuse'
 
 // fixed menu
 window.addEventListener('scroll', () => {

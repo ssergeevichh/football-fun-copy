@@ -1,6 +1,6 @@
 import '../styles/main.scss';
 
-import './reuse'
+import './helper'
 
 import './header-animation'
 import './top-news'

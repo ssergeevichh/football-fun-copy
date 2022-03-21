@@ -1,5 +1,5 @@
 import Splide from '@splidejs/splide';
-import { animateTabs } from './reuse';
+import { animateTabs } from './helper';
 
 //tabs animation
 document.addEventListener('click', ({ target }) => {

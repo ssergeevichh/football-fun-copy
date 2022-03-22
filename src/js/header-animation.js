@@ -11,7 +11,7 @@ const searchBlock = document.querySelector('.header-search')
 const subMenuTour = document.querySelector('.tour')
 const subMenuNews = document.querySelector('.news')
 
-import {hideElement, showElement} from './helper'
+import { hideElement, showElement } from './helper'
 
 // fixed menu
 window.addEventListener('scroll', () => {
@@ -41,31 +41,35 @@ menuBtn.addEventListener('click', () => {
 
     showElement(closeMenuBtn, menuLayer)
 
+    document.body.style.overflow = 'hidden'
 })
 
 //mobile version of menu
-document.addEventListener('click', ({target}) => {
-    if(target === menuLayer || target === mobileCloseBtn) {
+document.addEventListener('click', ({ target }) => {
+    if (target === menuLayer || target === mobileCloseBtn) {
         mobileMenu.classList.remove('mobile-menu-active')
-        
+
         setTimeout(() => showElement(menuBtn), 190)
-        
+
         hideElement(closeMenuBtn, menuLayer)
+
+        document.body.style.overflow = 'auto'
+
     }
 })
 
 //internal menu's
 //.sub-active for full screen
-document.addEventListener('click', ({target}) => {
-    if(target.dataset.tour) {
+document.addEventListener('click', ({ target }) => {
+    if (target.dataset.tour) {
         mobileMenu.classList.add('sub-active')
         showElement(subMenuTour)
-    } 
+    }
     else if (target.dataset.news) {
         mobileMenu.classList.add('sub-active')
         showElement(subMenuNews)
     }
-    if(target.classList.contains('back')) {
+    if (target.classList.contains('back')) {
         mobileMenu.classList.remove('sub-active')
         mobileMenu.style.top = ''
         hideElement(subMenuTour, subMenuNews)
@@ -78,10 +82,10 @@ mobileSearchBtn.addEventListener('click', () => {
     searchInput.setAttribute("placeholder", "Поиск")
     hideElement(mobileSearchBtn)
     showElement(searchBlock)
-    document.addEventListener('click', ({target}) => {
-        if(target !== searchInput && !target.closest('.icon-search-mobile') && !target.closest('.icon-search')) {
+    document.addEventListener('click', ({ target }) => {
+        if (target !== searchInput && !target.closest('.icon-search-mobile') && !target.closest('.icon-search')) {
             hideElement(searchBlock)
-            showElement(mobileSearchBtn )
+            showElement(mobileSearchBtn)
         }
     })
 })

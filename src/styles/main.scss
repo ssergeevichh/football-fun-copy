@@ -37,8 +37,14 @@ input {
   appearance: none;
 }
 
-@media(max-width:575px) {
+@media(max-width:991px) {
   .container {
-    padding: 0 8px;
+    padding: 0 15px !important;
+  }
+}
+
+@media(max-width:630px) {
+  .container {
+    padding: 0 8px !important;
   }
 }

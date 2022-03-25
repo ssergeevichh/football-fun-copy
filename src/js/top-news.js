@@ -1,10 +1,8 @@
-import Splide from '@splidejs/splide';
 import { animateTabs } from './helper';
-
 //tabs animation
 document.addEventListener('click', ({ target }) => {
     if (target.className === 'tab-btns__item') {
-        
+
         let options = {
             currentBtn: target,
             btnSelector: '.tab-btns__item',
@@ -12,15 +10,11 @@ document.addEventListener('click', ({ target }) => {
             btnActiveClass: 'tab-btns__item--active',
             contentActiveClass: 'tab-content__item--active'
         }
-        
+
         animateTabs(options)
     }
 })
 
-//slider
-document.addEventListener('DOMContentLoaded', function () {
-    var splide = new Splide('#slider', {
-        perPage: 1,
-    });
-    splide.mount();
-});
+
+
+

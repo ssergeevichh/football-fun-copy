@@ -1,0 +1,57 @@
+.column-group {
+    .splide {
+        box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 6%);
+
+        &:hover {
+            box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 13%);
+        }
+        &__arrow {
+            &--prev {
+                left: 10px;
+            }
+    
+            &--next {
+                right: 10px;
+            }
+        }
+    }
+}
+
+.splide {
+    height: 100%;
+    position: relative;
+    transition: all .3s;
+
+
+    &__track {
+        &__wrapper {
+            height: 100%;
+
+        }
+    }
+
+    &__arrows {
+        z-index: 1;
+        width: 100%;
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        top: 27%;
+    }
+
+    &__arrow {
+        padding: 5px;
+        width: auto;
+        height: auto;
+        color: #fff;
+        font-size: 30px;
+        opacity: 1;
+        background: none;
+
+
+    }
+
+    &__pagination {
+        display: none;
+    }
+}

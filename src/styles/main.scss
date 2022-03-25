@@ -5,9 +5,12 @@
 @import 'base/variables';
 @import 'base/_icons';
 @import 'base/reuse-parts';
+@import 'base/slider';
 
 @import 'parts/header';
 @import 'parts/top-news';
+@import 'parts/medium-slider';
+@import 'parts/opinions';
 
 .container {
   margin: 0 auto;
@@ -29,12 +32,6 @@ a {
 
 li {
   list-style-type: none;
-}
-
-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
 }
 
 @media(max-width:991px) {

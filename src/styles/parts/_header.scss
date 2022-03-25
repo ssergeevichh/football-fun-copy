@@ -308,6 +308,9 @@
             border: 1px solid $main-color;
 
         }
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
 }
 

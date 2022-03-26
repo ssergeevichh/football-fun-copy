@@ -8,12 +8,13 @@ const data = [
 export function sendResult(index) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            if (Math.random() < 0.4)
-                reject(new Error('Something went wrong'))
+            if (Math.random() < 0.4) 
+                return reject(new Error('Something went wrong'))
 
-            if (index > data.length - 1)
-                reject(new Error('Something  Index'))
+            if (index > data.length - 1) 
+                return reject(new Error('Something  Index'))
 
+            data[index]++
             const response = data.map((data, index) => {
                 return {
                     index,
@@ -25,4 +26,3 @@ export function sendResult(index) {
         }, 2000)
     })
 }
-

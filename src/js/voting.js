@@ -1,21 +1,23 @@
-import { showElement } from './helper'
+import { hideElement, showElement } from './helper'
 import { sendResult } from './server'
 
 const votingBlock = document.querySelector('.voting')
 const votingBtns = document.querySelectorAll('.voting__progress')
+const preloader = document.querySelector('.voting__preload')
 
-let voting = ({target}) => {
+let voting = ({ target }) => {
     if (target.closest('.voting__progress')) {
+        votingBlock.classList.add('voting--non-active')
+        showElement(preloader)
         let currentBtn = target.id
         sendResult(currentBtn)
             .then(data => {
-                let currentObj = data.find((item) => item.index == currentBtn)
-                let generalCounter = 0
-                data.forEach(item => {
-                    generalCounter += item.value
-                })
-                ++currentObj.value
-                ++generalCounter
+                hideElement(preloader)
+                votingBlock.classList.remove('voting--non-active')
+
+
+                let initialValue = 0
+                let generalCounter = data.reduce((previousValue, currentValue) => previousValue + currentValue.value, initialValue)
 
                 votingBtns.forEach((btn, index) => {
                     let currentCounter = data[index].value
@@ -31,7 +33,11 @@ let voting = ({target}) => {
                     quantityEl.innerHTML = currentCounter
                     progressLine.style.width = percentNum + '%'
                 })
-                votingBlock.removeEventListener('click',voting)
+                votingBlock.removeEventListener('click', voting)
+            }, reason => {
+                votingBlock.classList.remove('voting--non-active')
+                hideElement(preloader)
+                alert(reason)
             })
     }
 }

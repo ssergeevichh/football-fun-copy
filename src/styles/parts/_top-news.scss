@@ -22,7 +22,12 @@
         min-height: 52px;
         margin-top: 16px;
     }
-
+    &__first-form {
+        margin-bottom: 32px;
+    }
+    &__second-form {
+        height: 100%;
+    }
 
 }
 
@@ -350,9 +355,6 @@
         margin: 0 3px 10px;
 
     }
-    .splide {
-        display: none;
-    }
     
     .news-slider-mobile {
         height: 435px;
@@ -380,6 +382,9 @@
         &__btn {
             min-height: 52px;
             margin-top: 10px;
+        }
+        &__splide {
+            display: none;
         }
     }
     .news-small {

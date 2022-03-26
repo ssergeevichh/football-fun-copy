@@ -447,7 +447,7 @@
 
       </ul>
 
-      <div id="slider" class="splide">
+      <div id="slider" class="splide top-item__splide">
         <div class="splide__arrows ">
           <div class="splide__arrow icon-small-arrow-left splide__arrow--prev">
 
@@ -1656,7 +1656,7 @@
     </div>
   </section>
 
-  <section class="column-group container">
+  <section class="column-group opinions container">
     <div class="top-item column-group__item">
       <div class="title top-item__title">Футбольные мнения</div>
       <ul class="post-list">
@@ -1696,7 +1696,7 @@
         <div class="icon-small-arrow-right"></div>
       </div>
 
-      <ul class="news-small">
+      <ul class="news-small opinions__news-small">
         <li class="news-small-item news-small__item">
           <img src="/img/playerwebp.webp" alt="barselona">
           <div class="news-small-item__content">
@@ -2177,59 +2177,77 @@
       <button class="top-item__btn btn">Смотреть все новости</button>
     </div>
     <div class="top-item">
-      <div class="title">Ваше мнение</div>
-      <form class="" action="#">
-        <div class="news-title">Заслужил ли Лука Мордич золотой мяч в этом году?</div>
-        <input id="yes" name="voting" value="true" type="radio">
-        <label for="yes">Да, заслужил</label>
-        <input id="no" name="voting" value="false" type="radio">
-        <label for="no">Нет, не заслужил</label>
-        <button class="btn btn--second-type voting__btn ">Голосовать</button>
+      <div class="title top-item__title">Ваше мнение</div>
+      <form class="voting-form top-item__first-form" action="#">
+        <div class="news-title voting-form__news-title">Заслужил ли Лука Мордич золотой мяч в этом году?</div>
+        <div class="voting-form__variant">
+          <input id="yes" name="voting" value="true" type="radio">
+          <label for="yes">Да, заслужил</label>
+        </div>
+        <div class="voting-form__variant">
+          <input id="no" name="voting" value="false" type="radio">
+          <label for="no">Нет, не заслужил</label>
+        </div>
+        <button class="btn btn--second-type voting-form__btn">Голосовать</button>
       </form>
-      <form action="#" class="">
-        <div class="news-title">Какое место в своей группе займет сборная России в отборе на Евро 2020?</div>
+      <form action="#" class="voting-form top-item__second-form">
+        <div class="news-title voting-form__news-title">Какое место в своей группе займет сборная России в отборе на Евро 2020?</div>
 
         <div class="voting">
-          <div id="0" class="voting__progress">Первое
-            <div class="voting__progress-line"></div>
-            <div class="voting__progress-state">
-              <span class="percent-wrapper">
-                <div class="voting__progress-percent">0</div> %
-              </span>
-
-              <span class="quantity-wrapper">(<div class="voting__progress-quantity">(0)</div>)</span>
+          <div class="voting__wrapper">
+            <div id="0" class="voting__progress">Первое
+              <div class="voting__progress-line"></div>
+              <div class="voting__progress-state">
+                <span class="percent-wrapper">
+                  <div class="voting__progress-percent">0</div> %
+                </span>
+  
+                <span class="quantity-wrapper">(<div class="voting__progress-quantity">(0)</div>)</span>
+              </div>
+            </div>
+            <div id="1" class="voting__progress">Второе
+              <div class="voting__progress-line"></div>
+              <div class="voting__progress-state">
+                <span class="percent-wrapper">
+                  <div class="voting__progress-percent">0</div> %
+                </span>
+  
+                <span class="quantity-wrapper">(<div class="voting__progress-quantity">(0)</div>)</span>
+              </div>
+            </div>
+            <div id="2" class="voting__progress">Третье
+              <div class="voting__progress-line"></div>
+              <div class="voting__progress-state">
+                <span class="percent-wrapper">
+                  <div class="voting__progress-percent">0</div> %
+                </span>
+  
+                <span class="quantity-wrapper">(<div class="voting__progress-quantity">(0)</div>)</span>
+              </div>
+            </div>
+            <div id="3" class="voting__progress">Четвертое и ниже
+              <div class="voting__progress-line"></div>
+              <div class="voting__progress-state">
+                <span class="percent-wrapper">
+                  <div class="voting__progress-percent">0</div> %
+                </span>
+  
+                <span class="quantity-wrapper">(<div class="voting__progress-quantity">(0)</div>)</span>
+              </div>
             </div>
           </div>
-          <div id="1" class="voting__progress">Второе
-            <div class="voting__progress-line"></div>
-            <div class="voting__progress-state">
-              <span class="percent-wrapper">
-                <div class="voting__progress-percent">0</div> %
-              </span>
-
-              <span class="quantity-wrapper">(<div class="voting__progress-quantity">(0)</div>)</span>
-            </div>
-          </div>
-          <div id="2" class="voting__progress">Третье
-            <div class="voting__progress-line"></div>
-            <div class="voting__progress-state">
-              <span class="percent-wrapper">
-                <div class="voting__progress-percent">0</div> %
-              </span>
-
-              <span class="quantity-wrapper">(<div class="voting__progress-quantity">(0)</div>)</span>
-            </div>
-          </div>
-          <div id="3" class="voting__progress">Четвертое и ниже
-            <div class="voting__progress-line"></div>
-            <div class="voting__progress-state">
-              <span class="percent-wrapper">
-                <div class="voting__progress-percent">0</div> %
-              </span>
-
-              <span class="quantity-wrapper">(<div class="voting__progress-quantity">(0)</div>)</span>
-            </div>
-          </div>
+        </div>
+        <div class="voting__preload">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="btns-wrapper voting-form__btns">
+          <button class="btn btn--second-type">Обсудить</button>
+          <a href="#">Следующие вопросы
+            <div class="icon-small-arrow-right"></div>
+          </a>
         </div>
 
       </form>

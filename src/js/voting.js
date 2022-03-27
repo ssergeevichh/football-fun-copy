@@ -69,7 +69,6 @@ let voting = (e) => {
 
                     footerVotingBtns.style.display = 'flex'
                 }, reason => {
-                    poll = {}
 
                     openModal('.voting-modal')
 

@@ -1,4 +1,5 @@
 .opinions {
+
     // grid-template-columns: repeat(2, minmax(100px, 1fr));
     &__news-small {
         // grid-template-columns: 1fr;
@@ -13,9 +14,23 @@
 
 .voting {
     transition: all .3s;
+
     &--non-active {
+        z-index: 2;
         filter: blur(3px);
     }
+
+    &__discussion {
+        margin-top: 20px;
+    }
+
+    &__wrapper {
+        transition: all .3s;
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+    }
+
     &__progress {
         cursor: pointer;
         height: 100%;
@@ -30,6 +45,11 @@
             margin-left: 4px;
             display: flex;
         }
+    }
+
+    &__preload {
+        opacity: 0;
+        visibility: hidden;
     }
 
     &__progress-state {
@@ -60,26 +80,26 @@
 
 }
 
+.discussion-wrapper {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    visibility: hidden;
 
+    a {
+        color: #5F5F5F !important;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+}
 
 .voting-form {
     position: relative;
     display: flex;
     flex-direction: column;
 
-    &__btns {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: auto;
-
-        a {
-            color: #5F5F5F !important;
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-        }
-    }
 
     &__btn {
         margin-top: 10px;
@@ -97,28 +117,39 @@
 
         label {
             margin-left: 6px;
+            cursor: pointer;
         }
 
         input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: relative;
-            width: 14px;
-            height: 14px;
+            min-width: 15.5px;
+            min-height: 15.5px;
 
             &::after {
                 position: absolute;
                 content: '';
-                width: 14px;
-                height: 14px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 15.5px;
+                height: 15.5px;
                 border: 1.5px solid $main-color;
                 border-radius: 100%;
             }
 
             &:checked {
+
                 &::after {
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
                     position: absolute;
                     content: '';
-                    width: 14px;
-                    height: 14px;
+                    width: 15.5px;
+                    height: 15.5px;
                     border: 1.5px solid $main-color;
                     border-radius: 100%;
                 }
@@ -140,6 +171,37 @@
     }
 }
 
+.preload-layer {
+    position: relative;
+}
+
+.variants-wrapper {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    transition: all .3s;
+
+    &--non-active {
+        display: none;
+    }
+}
+
+.voting-forms {
+    padding: 0 8px 0 2px;
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        background-color: #eeeeee;
+        border-radius: $border-radius;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $main-color;
+        border-radius: $border-radius;
+
+    }
+}
 
 .percent-wrapper {
     color: $main-color;
@@ -147,5 +209,23 @@
 
 .quantity-wrapper {
     color: #5F5F5F;
+}
 
+.modal-wrapper {
+    display: none;
+}
+.voting-modal {
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__message {
+        font-size: 45px;
+        text-align: center;
+        font-weight: 700;
+    }
+    &__img {
+        width: 350px;
+        max-width: 100%;
+    }
 }

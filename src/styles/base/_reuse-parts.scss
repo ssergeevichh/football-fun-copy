@@ -77,6 +77,13 @@
             background-color: $main-color;
         }
     }
+    &--non-active {
+        &:hover {
+            cursor: inherit;
+            background-color: #fff;
+            color: $main-color;
+        }
+    }
 }
 
 @media(max-width:420px) {

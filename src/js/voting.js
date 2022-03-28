@@ -1,9 +1,8 @@
 import { hideElement, showElement } from './helper'
-import { openModal } from './modal';
 import { sendPoll } from './server'
 
 const votingBlock = document.querySelector('.voting-forms')
-const rejectedModal = document.querySelector('.voting-modal')
+const rejectedMessage = document.querySelector('.voting-forms__error-message')
 
 let poll = {};
 
@@ -29,6 +28,12 @@ let voting = (e) => {
         const votingResult = currentPoll.querySelector('.voting__wrapper')
         const footerVotingBtns = currentPoll.querySelector('.discussion-wrapper')
 
+        rejectedMessage.style.display = 'none'
+
+        if(currentPoll.lastChild === rejectedMessage) {
+            currentPoll.removeChild(rejectedMessage)
+        }
+
         if (Object.keys(poll).length !== 0 && poll.pollId === e.target.closest('.voting-form').id) {
             submitVoteBtn.classList.add('btn--non-active')
 
@@ -38,6 +43,8 @@ let voting = (e) => {
             sendPoll(poll)
                 .then(data => {
                     poll = {}
+
+
                     submitVoteBtn.setAttribute('disabled', 'disabled')
 
                     hideElement(preloader, answersVariants)
@@ -66,14 +73,14 @@ let voting = (e) => {
 
                     })
                     showElement(footerVotingBtns)
-
                     footerVotingBtns.style.display = 'flex'
+
+
+
                 }, reason => {
-
-                    openModal('.voting-modal')
-
-                    const message = document.querySelector('.voting-modal__message')
-                    message.innerHTML = reason
+                    rejectedMessage.style.display = 'block'
+                    rejectedMessage.innerHTML = reason
+                    currentPoll.appendChild(rejectedMessage)
 
                     submitVoteBtn.classList.remove('btn--non-active')
 

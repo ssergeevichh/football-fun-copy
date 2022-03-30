@@ -1,0 +1,19 @@
+.column-group {
+    .splide {
+        box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 6%);
+
+        &:hover {
+            box-shadow: 1px 1px 4px 1px rgb(0 0 0 / 13%);
+        }
+
+        &__arrow {
+            &--prev {
+                left: 10px;
+            }
+
+            &--next {
+                right: 10px;
+            }
+        }
+    }
+}

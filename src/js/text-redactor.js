@@ -9,5 +9,5 @@ function textSlicer(selector,quantity) {
     })
 }
 
-textSlicer('.news-title', 83)
-textSlicer('.content-wrapper__desc',127)
+textSlicer('.news-title', 59)
+textSlicer('.content-wrapper__desc',124)

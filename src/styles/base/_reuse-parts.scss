@@ -88,6 +88,9 @@
 
 @media(max-width:420px) {
     .title {
-        font-size: 22px;
+        font-size: 22px !important;
+    }
+    .news-title {
+        font-size: 16px;
     }
 }

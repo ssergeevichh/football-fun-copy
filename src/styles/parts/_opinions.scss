@@ -38,6 +38,7 @@
     }
 
 }
+
 .state-inner {
     display: flex;
     transition: all .3s;
@@ -47,6 +48,7 @@
     top: 50%;
     transform: translateY(-50%);
     right: 8px;
+
     span {
         margin-left: 4px;
         display: flex;
@@ -174,6 +176,22 @@
 
     &__news-title {
         margin-bottom: 17px;
+        font-size: 18px;
+        line-height: 1.2;
+        color: $color-font;
+        font-weight: 500;
+        display: block;
+        transition: all .3s;
+        cursor: pointer;
+
+        &--font-size-15 {
+            font-size: 15px;
+        }
+
+        &:hover {
+
+            color: $main-color;
+        }
     }
 
 
@@ -231,4 +249,22 @@
     color: black;
     font-size: 18px;
     background-color: rgb(255, 0, 0);
+}
+
+@media(max-width:1100px) {
+    .opinions {
+        &__top-item {
+            margin-bottom: 20px;
+        }
+    }
+
+}
+
+@media(max-width:575px) {
+    .discussion-wrapper {
+        flex-direction: column;
+        a {
+            padding: 15px 0;
+        }
+    }
 }

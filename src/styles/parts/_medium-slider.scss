@@ -17,10 +17,12 @@
         border: 1px solid #AFB7D1;
         border-radius: $border-radius;
         transition: all .3s;
+
         &:not(:disabled) {
             color: $main-color;
             border-color: $main-color;
         }
+
         &:last-child {
             right: 0;
         }
@@ -50,4 +52,36 @@
         }
     }
 
+}
+
+@media(max-width:575px) {
+    .medium-slider {
+        &__arrows {
+            display: none;
+        }
+        .splide {
+            height: calc(100% - 80px);
+            &__track {
+                &__wrapper {
+                    display: inherit;
+                }
+            }
+
+            &__pagination {
+                color: $main-color;
+                display: flex;
+                bottom: 2em;
+
+                .is-active {
+                    background: $main-color;
+                }
+            }
+        }
+    }
+
+    .post-list {
+        &__post-item {
+            margin: 0;
+        }
+    }
 }

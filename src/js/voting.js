@@ -27,7 +27,12 @@ let sendForm = (e) => {
     const answerVariantsBlock = currentPoll.querySelector('.voting__variants-wrapper')
     const preloader = currentPoll.querySelector('.voting__preload')
     const votingResultsBlock = currentPoll.querySelector('.voting__results-wrapper')
+    const selectedVariantValue = currentForm.elements.voting.value
 
+    let poll = {
+        pollId: currentForm.id,
+        voteIndex: selectedVariantValue
+    }
 
     if (currentPoll.lastChild === rejectedMessage) {
         rejectedMessage.style.display = 'none'

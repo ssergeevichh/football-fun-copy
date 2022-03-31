@@ -31,6 +31,12 @@
     &__title {
         margin-bottom: 20px;
     }
+
+    &__track {
+        &__wrapper {
+            display: flex;
+        }
+    }
 }
 
 
@@ -59,8 +65,10 @@
         &__arrows {
             display: none;
         }
+
         .splide {
             height: calc(100% - 80px);
+
             &__track {
                 &__wrapper {
                     display: inherit;

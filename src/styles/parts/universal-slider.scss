@@ -1,4 +1,4 @@
-.medium-slider {
+.universal-slider {
     margin-top: 40px !important;
     height: 580px;
 
@@ -61,7 +61,7 @@
 }
 
 @media(max-width:575px) {
-    .medium-slider {
+    .universal-slider {
         &__arrows {
             display: none;
         }

@@ -15,11 +15,34 @@ document.addEventListener('DOMContentLoaded', function () {
         breakpoints: {
             575: {
                 perPage:1,
-                // pagination: 'slider'
             }
         }
     })
     splideTransfer.mount()
 
+    var splideHistory = new Splide('#history', {
+        perPage: 3,
+        gap: 28,
+        perMove: 1,
+        breakpoints: {
+            575: {
+                perPage:1,
+            }
+        }
+    })
+    splideHistory.mount()
+
+    var splideRating = new Splide('#rating', {
+        perPage: 4,
+        gap: 18,
+        perMove: 1,
+        breakpoints: {
+            575: {
+                perPage:1,
+            }
+        }
+    })
+    splideRating.mount()
 });
+
 

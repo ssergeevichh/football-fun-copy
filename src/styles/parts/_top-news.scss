@@ -29,18 +29,36 @@
     margin: 0;
     height: 100%;
     z-index: 0;
+
 }
 
 .post-item {
     display: flex;
     flex-direction: column;
-    height: 100%;
     z-index: 4;
+    transition: all .3s;
+    box-shadow: 1px 1px 5px 0 hsl(220deg 3% 58% / 12%);
 
+    &:hover {
+        background: #FFFFFF;
+        box-shadow: 1px 1px 5px rgba(144, 146, 150, 0.124536), 0px 10px 15px rgba(205, 205, 205, 0.200994);
+        border-radius: 4px;
+    }
+    &__sm-link {
+        height: 66%;
+        max-height: 66%;
+    }
+    &--height-level-1 {
+        height: 100%;
+    }
+    &--height-level-2{
+        height: 90%;
+    }
 
     &__link {
         position: relative;
         height: 56%;
+        max-height: 56%;
 
         &::after {
             background-color: rgba(0, 0, 0, .3);
@@ -439,6 +457,11 @@
             &::after {
                 border-radius: $border-radius;
             }
+        }
+    }
+    .post-list {
+        &__post-item {
+            margin: 0;
         }
     }
 }

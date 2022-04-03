@@ -1,19 +1,19 @@
 @font-face {
   font-family: 'icomoon';
-  src: url('/fonts/icomoon.eot?tdsjl3');
-  src: url('/fonts/icomoon.eot?tdsjl3#iefix') format('embedded-opentype'),
-    url('/fonts/icomoon.ttf?tdsjl3') format('truetype'),
-    url('/fonts/icomoon.woff?tdsjl3') format('woff'),
-    url('/fonts/icomoon.svg?tdsjl3#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?4qgo3n');
+  src:  url('fonts/icomoon.eot?4qgo3n#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?4qgo3n') format('truetype'),
+    url('fonts/icomoon.woff?4qgo3n') format('woff'),
+    url('fonts/icomoon.svg?4qgo3n#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
+  speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -25,45 +25,49 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-facebook:before {
+  content: "\e90c";
+  color: #fff;
+}
+.icon-vk1:before {
+  content: "\e90b";
+  color: #fff;
+}
 .icon-arrow-left-menu:before {
   content: "\e908";
 }
-
 .icon-small-arrow-right:before {
   content: "\e900";
 }
-
 .icon-small-arrow-left:before {
   content: "\e901";
 }
-
 .icon-arrow-scroll-top:before {
   content: "\e902";
 }
-
 .icon-view-eye:before {
   content: "\e903";
 }
-
 .icon-trophy:before {
   content: "\e904";
 }
-
 .icon-search-icon:before {
   content: "\e905";
 }
-
 .icon-hamburger-menu:before {
   content: "\e906";
 }
-
 .icon-comment:before {
   content: "\e907";
 }
-
+.icon-arrow-left:before {
+  content: "\e90a";
+}
 .icon-calendar:before {
   content: "\e909";
 }
+
+
 
 .icon-arrow-left-menu {
   font-size: 50px;
@@ -184,6 +188,16 @@
   .icon-small-arrow-right {
     margin-left: 6px;
     color: #9CA6C6CF;
+  }
+}
+
+.footer-wrapper {
+  .icon-facebook {
+    font-size: 28px;
+  }
+  .icon-vk1 {
+    font-size: 28px;
+    margin-left: 37px;
   }
 }
 

@@ -32,6 +32,9 @@
     &--font-size-15 {
         font-size: 15px;
     }
+    &--font-size-16 {
+        font-size: 16px;
+    }
 
     &:hover {
 
@@ -44,7 +47,9 @@
     font-size: 14px;
     color: $main-color;
     margin-bottom: 6px;
-
+    &--font-weight-thin {
+        font-weight: 100;
+    }
     &:hover {
         color: $main-color !important;
         text-decoration: underline !important;

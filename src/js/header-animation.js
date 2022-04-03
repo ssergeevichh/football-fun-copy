@@ -1,3 +1,5 @@
+import { hideElement, showElement } from './helper'
+
 const searchInput = document.querySelector('.header-search__input')
 const searchBtn = document.querySelector('.icon-search')
 const menu = document.querySelector('.menu-wrapper')
@@ -9,9 +11,9 @@ const mobileCloseBtn = document.querySelector('.icon-arrow-left-menu')
 const mobileSearchBtn = document.querySelector('.icon-search-mobile')
 const searchBlock = document.querySelector('.header-search')
 const subMenuTour = document.querySelector('.tour')
+
 const subMenuNews = document.querySelector('.news')
 
-import { hideElement, showElement } from './helper'
 
 // fixed menu
 window.addEventListener('scroll', () => {

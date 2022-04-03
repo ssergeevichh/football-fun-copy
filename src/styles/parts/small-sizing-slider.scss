@@ -1,0 +1,13 @@
+.sm-sizing-slider {
+    height: auto;
+    margin-bottom: 20px !important;
+    &__post-list {
+        margin-bottom: 60px !important;
+    }
+
+    .splide {
+        &__pagination {
+            bottom: 1.8em;
+        }
+    }
+}

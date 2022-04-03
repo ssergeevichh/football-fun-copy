@@ -17,7 +17,7 @@ export function animateTabs({ currentBtn ,btnSelector, contentSelector, btnActiv
     const tabContent = document.querySelectorAll(contentSelector)
 
     tabBtns.forEach(btn => btn.classList.remove(btnActiveClass))
-    currentBtn.classList.add('tab-btns__item--active')
+    currentBtn.classList.add(btnActiveClass)
 
     tabContent.forEach(elem => {
         elem.classList.remove(contentActiveClass)

@@ -1,0 +1,47 @@
+.team-tabs {
+    transition: all .3s;
+}
+.team-tabs__btns {
+    position: relative;
+    display: flex;
+    border-bottom: 1px solid rgba(139, 147, 176, 0.666494);
+    transition: all .3s;
+    &-decorator {
+        transition: all .3s;
+        position: absolute;
+        height: 3px;
+        bottom: 0;
+        background-color: $main-color;
+    }
+}
+.team-tabs-container {
+    width: 1190px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.team-tab-btn {
+    transition: all .3s;
+    padding: 11px 6px;
+    border: none;
+    background: #fff;
+    flex-grow: 1;
+    &--active {
+        font-weight: 500;
+        
+    }
+}
+
+.team-tabs__content {
+    display: flex;
+}
+
+
+.team-tab-content {
+    transition: all .3s;
+    opacity: 0;
+    visibility: hidden;
+    &--active {
+        opacity: 1;
+        visibility: visible;
+    }
+}

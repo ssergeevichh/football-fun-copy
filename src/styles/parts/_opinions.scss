@@ -261,8 +261,13 @@
 }
 
 @media(max-width:575px) {
+    .opinions {
+        padding-top: 40px !important;
+    }
+
     .discussion-wrapper {
         flex-direction: column;
+
         a {
             padding: 15px 0;
         }

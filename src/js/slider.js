@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
         gap: 28,
         perMove: 1,
         breakpoints: {
+            991: {
+                perPage: 2,
+            },
             575: {
                 perPage:1,
             }
@@ -28,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
             991: {
                 perPage:2,
             },
-            768: {
+            575: {
                 perPage:1,
             }
         }

@@ -6,16 +6,16 @@ import { sendPoll } from './server'
 
 function createVoting(formSelector) {
   const form = document.querySelector(formSelector)
-  const poll = form.querySelector('.voting')
+  const poll = form.querySelector('.poll')
 
   const answerVariantsBlock = poll.querySelector('.voting__variants-wrapper')
   const preloader = poll.querySelector('.voting__preload')
-  const resultItems = poll.querySelectorAll('.voting-result')
+  const resultItems = poll.querySelectorAll('.poll-result')
   const votingResultsBlock = poll.querySelector('.voting__results-wrapper')
   const submitVoteBtn = poll.querySelector('[data-id="vote-btn"]')
 
   /**
-   * Show voting results
+   * Show poll results
    * @param {object} data - data from server
    */
   
@@ -35,7 +35,7 @@ function createVoting(formSelector) {
       const resultItemIndicators = btn.querySelector('.state-inner')
       const indicatorPercent = btn.querySelector('.state-inner__percent')
       const indicatorQuantity = btn.querySelector('.state-inner__quantity')
-      const progressLine = btn.querySelector('.voting-result__line')
+      const progressLine = btn.querySelector('.poll-result__line')
       const individualPercentNum = Math.round(currentVariantVotes * 100 / votes)
 
       showElement(resultItemIndicators)
@@ -74,7 +74,7 @@ function createVoting(formSelector) {
  */
 
   function showError(reason) {
-    const rejectedMessage = document.querySelector('.voting-forms__error-message')
+    const rejectedMessage = document.querySelector('.poll-forms__error-message')
     if (reason) {
       rejectedMessage.innerHTML = reason
       rejectedMessage.style.display = 'block'
@@ -94,7 +94,7 @@ function createVoting(formSelector) {
 
     let pollData = {
       pollId: form.id,
-      voteIndex: form.elements.voting.value
+      voteIndex: form.elements.poll.value
     }
 
     setLoading(true)

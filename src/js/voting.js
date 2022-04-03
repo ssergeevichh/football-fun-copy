@@ -8,10 +8,10 @@ function createVoting(formSelector) {
   const form = document.querySelector(formSelector)
   const poll = form.querySelector('.poll')
 
-  const answerVariantsBlock = poll.querySelector('.voting__variants-wrapper')
-  const preloader = poll.querySelector('.voting__preload')
+  const answerVariantsBlock = poll.querySelector('.poll__variants-wrapper')
+  const preloader = poll.querySelector('.poll__preload')
   const resultItems = poll.querySelectorAll('.poll-result')
-  const votingResultsBlock = poll.querySelector('.voting__results-wrapper')
+  const pollResultsBlock = poll.querySelector('.poll__results-wrapper')
   const submitVoteBtn = poll.querySelector('[data-id="vote-btn"]')
 
   /**
@@ -21,11 +21,11 @@ function createVoting(formSelector) {
   
   function showResults(data) {
     hideElement(answerVariantsBlock)
-    showElement(votingResultsBlock)
+    showElement(pollResultsBlock)
 
-    answerVariantsBlock.classList.add('voting__variants-wrapper--non-active')
+    answerVariantsBlock.classList.add('poll__variants-wrapper--non-active')
 
-    votingResultsBlock.style.display = 'block'
+    pollResultsBlock.style.display = 'block'
 
     let votes = data.votes.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
 
@@ -56,12 +56,12 @@ function createVoting(formSelector) {
 
   function setLoading(value) {
     if (value) {
-      answerVariantsBlock.classList.add('voting__variants-wrapper--filter-blur')
+      answerVariantsBlock.classList.add('poll__variants-wrapper--filter-blur')
       showElement(preloader)
 
       submitVoteBtn.classList.add('btn--non-active')
     } else {
-      answerVariantsBlock.classList.remove('voting__variants-wrapper--filter-blur')
+      answerVariantsBlock.classList.remove('poll__variants-wrapper--filter-blur')
       hideElement(preloader)
 
       submitVoteBtn.classList.remove('btn--non-active')

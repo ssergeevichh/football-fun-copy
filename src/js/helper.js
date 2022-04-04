@@ -12,20 +12,71 @@ export function showElement(...elements) {
     }
 }
 
-export function animateTabs({ currentBtn ,btnSelector, contentSelector, btnActiveClass, contentActiveClass}) {
-    const tabBtns = document.querySelectorAll(btnSelector)
-    const tabContent = document.querySelectorAll(contentSelector)
+export function createTabs({ tabBlockSelector, btnSelector, contentSelector, btnActiveClass, contentActiveClass }) {
+    const tabBlock = document.querySelector(tabBlockSelector)
+    const tabBtns = tabBlock.querySelectorAll(btnSelector)
+    const tabContents = tabBlock.querySelectorAll(contentSelector)
 
-    tabBtns.forEach(btn => btn.classList.remove(btnActiveClass))
-    currentBtn.classList.add(btnActiveClass)
+    tabBlock.addEventListener('click', ({ target }) => {
+        if (target.closest(btnSelector)) {
 
-    tabContent.forEach(elem => {
-        elem.classList.remove(contentActiveClass)
-        elem.style.display = 'none'
+            tabBtns.forEach(btn => btn.classList.remove(btnActiveClass))
+            target.classList.add(btnActiveClass)
 
-        if (elem.dataset.id === currentBtn.id) {
-            elem.style.display = 'block'
-            setTimeout(() => elem.classList.add(contentActiveClass), 50)
+            tabContents.forEach(elem => {
+                elem.classList.remove(contentActiveClass)
+                elem.style.display = 'none'
+
+                if (elem.dataset.id === target.id) {
+                    elem.style.display = 'block'
+                    setTimeout(() => elem.classList.add(contentActiveClass), 50)
+                }
+            })
         }
     })
+
+}
+
+/**
+ * 
+ * @param {function} func - function to decorate
+ * @param {string} btnsBlockSelector - selector of block with buttons
+ * @param {string} decoratorSelector - selector of decorator
+ * @returns {function} - decorated function
+ */
+
+export function animateTabsDecorator(func, btnsBlockSelector, decoratorSelector) {
+    const tabBtnsBlock = document.querySelector(btnsBlockSelector)
+
+    setTimeout(() => tabBtnsBlock.firstElementChild.click(), 1500)
+    
+    tabBtnsBlock.addEventListener('click', ({ target }) => {
+        if (target.className === 'team-tab-btn') {
+            const btnsBlockCoords = tabBtnsBlock.getBoundingClientRect()
+            const currentBtnCoordinates = target.getBoundingClientRect()
+            const setSizing = (elem = currentBtnCoordinates) => {
+                const decorator = document.querySelector(decoratorSelector)
+                decorator.style.width = `${elem.width}px`
+                decorator.style.left = `${elem.left - btnsBlockCoords.left}px`
+            }
+
+            setSizing()
+
+            tabBtnsBlock.addEventListener('mouseover', ({ target }) => {
+                if (target.className !== 'team-tabs__btns') {
+                    const currentBtnCoordinates = target.getBoundingClientRect()
+                    setSizing(currentBtnCoordinates)
+                }
+            })
+
+            tabBtnsBlock.addEventListener('mouseleave', () => {
+                setTimeout(() => setSizing(), 1000)
+            })
+        }
+
+    })
+
+    return function (options) {
+        func(options)
+    }
 }

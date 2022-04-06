@@ -1,4 +1,4 @@
-import { createTabs, animateTabsDecorator } from './helper';
+import { createTabs, addUnderlinedDecorator } from './helper';
 
 let tablesTabsOptions = {
     tabBlockSelector:'.tab-content-wrapper',
@@ -10,7 +10,7 @@ let tablesTabsOptions = {
 createTabs(tablesTabsOptions)
 
 
-let teamInfoOptions = {
+let teamInfoTabsOptions = {
     tabBlockSelector:'.team-tabs-container',
     btnSelector: '.team-tab-btn',
     contentSelector: '.team-tab-content',
@@ -18,6 +18,13 @@ let teamInfoOptions = {
     contentActiveClass: 'team-tab-content--active'
 }
 
-let tabAnimation = animateTabsDecorator(createTabs,'.team-tabs__btns','.team-tabs__btns-decorator')
+let teamInfoDecoratorOptions = {
+    createTabsFunc: createTabs,
+    btnsBlockSelector: '.team-tabs__btns',
+    btnClassName: 'team-tab-btn',
+    decoratorSelector: '.team-tabs__btns-decorator'
+}
 
-tabAnimation(teamInfoOptions)
+let tabAnimation = addUnderlinedDecorator(teamInfoDecoratorOptions)
+
+tabAnimation(teamInfoTabsOptions)

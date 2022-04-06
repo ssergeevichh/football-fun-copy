@@ -37,46 +37,63 @@ export function createTabs({ tabBlockSelector, btnSelector, contentSelector, btn
 
 }
 
+function generateRandom(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min)
+}
+
 /**
  * 
  * @param {function} func - function to decorate
  * @param {string} btnsBlockSelector - selector of block with buttons
- * @param {string} decoratorSelector - selector of decorator
+ * @param {string} decoratorSelector - selector of underlinedDecorator
  * @returns {function} - decorated function
  */
 
-export function animateTabsDecorator(func, btnsBlockSelector, decoratorSelector) {
+export function addUnderlinedDecorator({ createTabsFunc, btnsBlockSelector, btnClassName, decoratorSelector }) {
     const tabBtnsBlock = document.querySelector(btnsBlockSelector)
-
-    setTimeout(() => tabBtnsBlock.firstElementChild.click(), 1500)
+    const tabBtnsBlockCoords = tabBtnsBlock.getBoundingClientRect()
+    const underlinedDecorator = document.querySelector(decoratorSelector)
     
+    let mouseOveredElement = null
+    let activeBtnCoords = {}
+    let activeBtnLeft = 0
+
+    setTimeout(() => tabBtnsBlock.children[generateRandom(0, 9)].click(), 1500)
+
     tabBtnsBlock.addEventListener('click', ({ target }) => {
-        if (target.className === 'team-tab-btn') {
-            const btnsBlockCoords = tabBtnsBlock.getBoundingClientRect()
-            const currentBtnCoordinates = target.getBoundingClientRect()
-            const setSizing = (elem = currentBtnCoordinates) => {
-                const decorator = document.querySelector(decoratorSelector)
-                decorator.style.width = `${elem.width}px`
-                decorator.style.left = `${elem.left - btnsBlockCoords.left}px`
+        if (target.className === btnClassName) {
+            activeBtnCoords = target.getBoundingClientRect()
+            activeBtnLeft = tabBtnsBlock.scrollLeft
+            
+            underlinedDecorator.style.width = `${activeBtnCoords.width}px`
+            underlinedDecorator.style.left = `${activeBtnCoords.left + activeBtnLeft - tabBtnsBlockCoords.left}px`
+
+            tabBtnsBlock.scrollLeft = activeBtnCoords.left
+        }
+    })
+    document.addEventListener('mouseover', ({ target }) => {
+        mouseOveredElement = target
+        
+        if (target.classList.contains(btnClassName)) {
+            const targetBtnCoordinates = target.getBoundingClientRect()
+            underlinedDecorator.style.width = `${targetBtnCoordinates.width}px`
+            underlinedDecorator.style.left = `${targetBtnCoordinates.left + tabBtnsBlock.scrollLeft - tabBtnsBlockCoords.left}px`
+        }
+    })
+
+    tabBtnsBlock.addEventListener('mouseleave', () => {
+        setTimeout(() => {
+            if (mouseOveredElement.className !== btnClassName) {
+                underlinedDecorator.style.width = `${activeBtnCoords.width}px`
+                underlinedDecorator.style.left = `${activeBtnCoords.left + activeBtnLeft - tabBtnsBlockCoords.left}px`
             }
 
-            setSizing()
-
-            tabBtnsBlock.addEventListener('mouseover', ({ target }) => {
-                if (target.className !== 'team-tabs__btns') {
-                    const currentBtnCoordinates = target.getBoundingClientRect()
-                    setSizing(currentBtnCoordinates)
-                }
-            })
-
-            tabBtnsBlock.addEventListener('mouseleave', () => {
-                setTimeout(() => setSizing(), 1000)
-            })
-        }
-
+        }, 1000)
     })
 
     return function (options) {
-        func(options)
+        createTabsFunc(options)
     }
 }

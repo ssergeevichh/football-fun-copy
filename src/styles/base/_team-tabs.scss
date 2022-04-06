@@ -2,6 +2,8 @@
     transition: all .3s;
 }
 .team-tabs__btns {
+    overflow-x: auto;
+    scroll-behavior: smooth;
     position: relative;
     display: flex;
     border-bottom: 1px solid rgba(139, 147, 176, 0.666494);
@@ -20,6 +22,7 @@
     margin: 0 auto;
 }
 .team-tab-btn {
+    white-space: nowrap;
     transition: all .3s;
     padding: 11px 6px;
     border: none;
@@ -37,11 +40,17 @@
 
 
 .team-tab-content {
+    padding: 0 15px;
     transition: all .3s;
     opacity: 0;
     visibility: hidden;
     &--active {
         opacity: 1;
         visibility: visible;
+    }
+}
+@media(max-width:991px) {
+    .team-tab-btn {
+        padding: 11px;
     }
 }

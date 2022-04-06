@@ -69,13 +69,13 @@ export function addUnderlinedDecorator({ createTabsFunc, btnsBlockSelector, btnC
             
             underlinedDecorator.style.width = `${activeBtnCoords.width}px`
             underlinedDecorator.style.left = `${activeBtnCoords.left + activeBtnLeft - tabBtnsBlockCoords.left}px`
+            tabBtnsBlock.scrollLeft += activeBtnCoords.left
 
-            tabBtnsBlock.scrollLeft = activeBtnCoords.left
         }
     })
     document.addEventListener('mouseover', ({ target }) => {
         mouseOveredElement = target
-        
+
         if (target.classList.contains(btnClassName)) {
             const targetBtnCoordinates = target.getBoundingClientRect()
             underlinedDecorator.style.width = `${targetBtnCoordinates.width}px`

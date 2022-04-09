@@ -12,30 +12,41 @@ export function showElement(...elements) {
     }
 }
 
-export function createTabs({ tabBlockSelector, btnSelector, contentSelector, btnActiveClass, contentActiveClass }) {
-    const tabBlock = document.querySelector(tabBlockSelector)
-    const tabBtns = tabBlock.querySelectorAll(btnSelector)
-    const tabContents = tabBlock.querySelectorAll(contentSelector)
+// function setActiveBtn(tabBtns, activeClass,event) {
+//     tabBtns.forEach(btn => btn.classList.remove(activeClass))
+//     event.target.classList.add(activeClass)
+// }
 
-    tabBlock.addEventListener('click', ({ target }) => {
-        if (target.closest(btnSelector)) {
+// function setActiveContent(tabContents, activeClass,event) {
+//     tabContents.forEach(content => {
+//         content.classList.remove(activeClass)
+//         content.style.display
+//     })
+// }
 
-            tabBtns.forEach(btn => btn.classList.remove(btnActiveClass))
-            target.classList.add(btnActiveClass)
+// export function createTabs({ tabBlockSelector, btnSelector, contentSelector, btnActiveClass, contentActiveClass }) {
+//     const tabBlock = document.querySelector(tabBlockSelector)
+//     const tabBtns = tabBlock.querySelectorAll(btnSelector)
+//     const tabContents = tabBlock.querySelectorAll(contentSelector)
 
-            tabContents.forEach(elem => {
-                elem.classList.remove(contentActiveClass)
-                elem.style.display = 'none'
+//     tabBlock.addEventListener('click', (e) => {
+//         if (e.target.closest(btnSelector)) {
 
-                if (elem.dataset.id === target.id) {
-                    elem.style.display = 'block'
-                    setTimeout(() => elem.classList.add(contentActiveClass), 50)
-                }
-            })
-        }
-    })
+//             setActiveBtn(tabBtns, btnActiveClass,e)    
 
-}
+//             tabContents.forEach(elem => {
+//                 elem.classList.remove(contentActiveClass)
+//                 elem.style.display = 'none'
+
+//                 if (elem.dataset.id === e.target.id) {
+//                     elem.style.display = 'block'
+//                     setTimeout(() => elem.classList.add(contentActiveClass), 50)
+//                 }
+//             })
+//         }
+//     })
+
+// }
 
 function generateRandom(min, max) {
     min = Math.ceil(min);
@@ -51,49 +62,56 @@ function generateRandom(min, max) {
  * @returns {function} - decorated function
  */
 
-export function addUnderlinedDecorator({ createTabsFunc, btnsBlockSelector, btnClassName, decoratorSelector }) {
+export function addUnderlinedDecorator({ createTabsFunc, btnsBlockSelector, btnActiveClass, btnClassName, decoratorSelector }) {
     const tabBtnsBlock = document.querySelector(btnsBlockSelector)
     const tabBtnsBlockCoords = tabBtnsBlock.getBoundingClientRect()
     const underlinedDecorator = document.querySelector(decoratorSelector)
-    
-    let mouseOveredElement = null
-    let activeBtnCoords = {}
-    let activeBtnLeft = 0
 
-    setTimeout(() => tabBtnsBlock.children[generateRandom(0, 9)].click(), 1500)
+    let tempActiveBtn = tabBtnsBlock.children[generateRandom(0, 9)]
+    let activeBtnCoords = tempActiveBtn.getBoundingClientRect()
+    let timerId = null
+    let activeBtn = null
+    tabBtnsBlock.scrollLeft = activeBtnCoords.left
 
-    tabBtnsBlock.addEventListener('click', ({ target }) => {
-        if (target.className === btnClassName) {
-            activeBtnCoords = target.getBoundingClientRect()
-            activeBtnLeft = tabBtnsBlock.scrollLeft
-            
-            underlinedDecorator.style.width = `${activeBtnCoords.width}px`
-            underlinedDecorator.style.left = `${activeBtnCoords.left + activeBtnLeft - tabBtnsBlockCoords.left}px`
-            tabBtnsBlock.scrollLeft += activeBtnCoords.left
+    function setActiveBtn(btnEl) {
+        const tabBtns = document.querySelectorAll(`.${btnClassName}`)
 
-        }
-    })
-    document.addEventListener('mouseover', ({ target }) => {
-        mouseOveredElement = target
-
-        if (target.classList.contains(btnClassName)) {
-            const targetBtnCoordinates = target.getBoundingClientRect()
-            underlinedDecorator.style.width = `${targetBtnCoordinates.width}px`
-            underlinedDecorator.style.left = `${targetBtnCoordinates.left + tabBtnsBlock.scrollLeft - tabBtnsBlockCoords.left}px`
-        }
-    })
-
-    tabBtnsBlock.addEventListener('mouseleave', () => {
-        setTimeout(() => {
-            if (mouseOveredElement.className !== btnClassName) {
-                underlinedDecorator.style.width = `${activeBtnCoords.width}px`
-                underlinedDecorator.style.left = `${activeBtnCoords.left + activeBtnLeft - tabBtnsBlockCoords.left}px`
-            }
-
-        }, 1000)
-    })
-
-    return function (options) {
-        createTabsFunc(options)
+        tabBtns.forEach(btn => btn.classList.remove(btnActiveClass))
+        btnEl.classList.add(btnActiveClass)
     }
+
+    function moveDecorator(btnEl) {
+        activeBtnCoords = btnEl.getBoundingClientRect()
+        const activeBtnLeft = tabBtnsBlock.scrollLeft
+
+        underlinedDecorator.style.width = `${activeBtnCoords.width}px`
+        underlinedDecorator.style.left = `${activeBtnCoords.left + activeBtnLeft - tabBtnsBlockCoords.left}px`
+    }
+
+    setActiveBtn(tempActiveBtn)
+    moveDecorator(tempActiveBtn)
+    
+    tabBtnsBlock.addEventListener('click', function ({target}) {
+        activeBtn = target
+
+        setActiveBtn(target)
+        moveDecorator(target)
+    })
+
+    tabBtnsBlock.addEventListener('mouseover', function ({target}) {
+        if (target.classList.contains(btnClassName)) {
+            clearTimeout(timerId)
+            moveDecorator(target)
+        }
+    })
+
+    tabBtnsBlock.addEventListener('mouseleave', function () {
+        timerId = setTimeout(() => {
+            moveDecorator(activeBtn)
+        },1000)
+    })
+
+    // return function (options) {
+    //     createTabsFunc(options)
+    // }
 }

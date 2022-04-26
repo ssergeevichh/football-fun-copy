@@ -1,10 +1,7 @@
+import { sendPoll } from '../server/voting.service'
 import { hideElement, showElement } from './helper'
-import { sendPoll } from './server'
 
-
-
-
-function createVoting(formSelector) {
+export function createVoting(formSelector) {
   const form = document.querySelector(formSelector)
   const poll = form.querySelector('.poll')
 
@@ -18,7 +15,7 @@ function createVoting(formSelector) {
    * Show poll results
    * @param {object} data - data from server
    */
-  
+
   function showResults(data) {
     hideElement(answerVariantsBlock)
     showElement(pollResultsBlock)
@@ -27,8 +24,7 @@ function createVoting(formSelector) {
 
     pollResultsBlock.style.display = 'block'
 
-    let votes = data.votes.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
-
+    const votes = data.votes.reduce((previousValue, currentValue) => previousValue + currentValue, 0)
 
     resultItems.forEach((btn, index) => {
       const currentVariantVotes = data.votes[index]
@@ -43,15 +39,13 @@ function createVoting(formSelector) {
       indicatorPercent.innerHTML = individualPercentNum
       indicatorQuantity.innerHTML = currentVariantVotes
 
-      setTimeout(() => progressLine.style.width = individualPercentNum + '%', 170)
-
+      setTimeout(() => progressLine.style.width = `${individualPercentNum}%`, 170)
     })
-
   }
 
   /**
    * Show preloader
-   * @param {boolean} value 
+   * @param {boolean} value
    */
 
   function setLoading(value) {
@@ -60,7 +54,8 @@ function createVoting(formSelector) {
       showElement(preloader)
 
       submitVoteBtn.classList.add('btn--non-active')
-    } else {
+    }
+    else {
       answerVariantsBlock.classList.remove('poll__variants-wrapper--filter-blur')
       hideElement(preloader)
 
@@ -70,7 +65,7 @@ function createVoting(formSelector) {
 
   /**
  * Shows or hides error message
- * @param {string | null} reason - reason of error 
+ * @param {string | null} reason - reason of error
  */
 
   function showError(reason) {
@@ -84,7 +79,6 @@ function createVoting(formSelector) {
       rejectedMessage.style.display = 'none'
       poll.removeChild(rejectedMessage)
     }
-
   }
 
   form.addEventListener('submit', (e) => {
@@ -92,22 +86,20 @@ function createVoting(formSelector) {
 
     submitVoteBtn.setAttribute('disabled', 'disabled')
 
-    let pollData = {
+    const pollData = {
       pollId: form.id,
-      voteIndex: form.elements.poll.value
+      voteIndex: form.elements.poll.value,
     }
 
     setLoading(true)
     showError(null)
 
     sendPoll(pollData)
-      .then(data => {
-
+      .then((data) => {
         setLoading(false)
         showResults(data)
-
       })
-      .catch(reason => {
+      .catch((reason) => {
         submitVoteBtn.removeAttribute('disabled', 'disabled')
 
         setLoading(false)
@@ -115,7 +107,3 @@ function createVoting(formSelector) {
       })
   })
 }
-
-createVoting('#gold-medal-in-sport-2020')
-createVoting('#place-championship-2020')
-

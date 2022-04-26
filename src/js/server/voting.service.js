@@ -20,13 +20,15 @@ const database = [
 export function sendPoll({ pollId, voteIndex }) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (Math.random() < 0.4)
+      if (Math.random() < 0.4) {
         return reject(new Error('Something went wrong...'))
+      }
 
       const poll = database.find(({ pollId: id }) => id === pollId)
 
-      if (!poll)
+      if (!poll) {
         return reject(new Error('No poll'))
+      }
 
       poll.votes[voteIndex] += 1
 

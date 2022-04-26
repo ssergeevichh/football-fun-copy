@@ -5,13 +5,16 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "lint": "eslint .",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "eslint": "^8.13.0",
     "sass": "^1.49.9",
     "vite": "^2.8.0"
   },
   "dependencies": {
+    "@gitart/eslint-config-basic": "0.0.13",
     "@splidejs/splide": "^3.6.12",
     "bootstrap": "^5.1.3"
   }

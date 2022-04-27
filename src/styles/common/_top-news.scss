@@ -37,6 +37,7 @@
 }
 
 .post-item {
+    position: relative;
     display: flex;
     flex-direction: column;
     z-index: 4;
@@ -48,14 +49,17 @@
         box-shadow: 1px 1px 5px rgba(144, 146, 150, 0.124536), 0px 10px 15px rgba(205, 205, 205, 0.200994);
         border-radius: 4px;
     }
+
     &__sm-link {
         height: 66%;
         max-height: 66%;
     }
+
     &--height-level-1 {
         height: 100%;
     }
-    &--height-level-2{
+
+    &--height-level-2 {
         height: 90%;
     }
 
@@ -77,6 +81,16 @@
         }
     }
 
+    &__content {
+        position: absolute;
+        bottom: 0;
+        padding: 0 40px 60px 40px
+    }
+
+    &__news-title {
+        margin-bottom: 10px;
+    }
+
     img {
         border-radius: 4px 4px 0 0;
         width: 100%;
@@ -96,6 +110,9 @@
     border-top: none;
     border-radius: 0 0 4px 4px;
 
+    &__desc {
+        margin: 10px 0;
+    }
 }
 
 
@@ -464,6 +481,7 @@
             }
         }
     }
+
     .post-list {
         &__post-item {
             margin: 0;

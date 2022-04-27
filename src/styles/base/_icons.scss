@@ -217,6 +217,33 @@
   }
 }
 
+.nesting-links {
+  .icon-small-arrow-right {
+    margin: 0 11px;
+    color: rgb(197, 197, 197);
+  }
+
+  .icon-boll {
+    color: #808080;
+  }
+}
+
+.football-news {
+  .icon-boll {
+    transition: all .3s;
+    background: transparent;
+    color: #ffffff8a;
+    border: none;
+  }
+
+  li {
+    .is-active {
+      color: $main-color !important;
+      font-size: 20px;
+    }
+  }
+}
+
 @media(max-width:991px) {
   .icon-hamburger-menu {
     display: block;

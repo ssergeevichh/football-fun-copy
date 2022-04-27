@@ -1,4 +1,4 @@
-function textSlicer(selector, quantity) {
+export function textSlicer(selector, quantity) {
   const textElements = document.querySelectorAll(selector)
 
   textElements.forEach((textItem) => {

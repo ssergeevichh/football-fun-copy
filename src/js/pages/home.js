@@ -1,9 +1,10 @@
 import '../../styles/home.scss'
+import '../common/header-animation.js'
 
 import Splide from '@splidejs/splide'
 import { createDecoratedTabs, createSimpleTabs } from '../common/helper'
 import { createVoting } from '../common/voting'
-import '../common/header-animation.js'
+import { textSlicer } from '../common/text-redactor'
 
 // tabs creation
 const simpleTabsOptions = {
@@ -28,6 +29,10 @@ createDecoratedTabs(teamInfoDecoratorOptions)
 // voting fuctions callings
 createVoting('#gold-medal-in-sport-2020')
 createVoting('#place-championship-2020')
+
+// text redactor
+textSlicer('.news-title', 52)
+textSlicer('.content-wrapper__desc', 124)
 
 // slider callings
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 @import 'bootstrap/dist/css/bootstrap-reboot.css';
+@import '/node_modules/@splidejs/splide/dist/css/splide.min.css';
 
 @import 'base/variables';
 @import 'base/_icons';
 @import 'base/reuse-parts';
+@import 'base/slider';
 
 @import 'common/header';
+@import 'common/top-news';
+
+@import 'parts/news.page/news-all';
+
 @include pageBase;
 

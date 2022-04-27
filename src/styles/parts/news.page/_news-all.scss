@@ -1,0 +1,42 @@
+.football-news {
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__arrows {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &__title {
+        margin-bottom: 30px;
+    }
+    .splide {
+        height: auto;
+        &__pagination {
+            display: flex !important;
+            align-items: baseline;
+            bottom: 1.5em;
+        }
+    }
+}
+
+.news-left {
+    width: 66%;
+    &__list {
+        margin-top: 30px;
+        height: auto;
+        display: grid;
+        gap: 55px 30px;
+        grid-template-columns: repeat(2, 1fr);
+        &__item {
+            z-index: 1;
+        } 
+    }
+}
+
+.add {
+    width: 100%;
+    height: 212px;
+    background-color: $main-color;
+}

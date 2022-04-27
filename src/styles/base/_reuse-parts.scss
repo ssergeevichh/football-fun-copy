@@ -18,6 +18,12 @@
     font-weight: 300;
     font-size: 14px;
     color: #5F5F5F;
+
+    &--level-2 {
+        font-weight: 300;
+        font-size: 16px;
+        color: #fff;
+    }
 }
 
 .news-title {
@@ -32,13 +38,20 @@
     &--font-size-15 {
         font-size: 15px;
     }
+
     &--font-size-16 {
         font-size: 16px;
     }
 
     &:hover {
-
         color: $main-color;
+    }
+
+    &--level-2 {
+        line-height: 28px;
+        font-weight: 700;
+        font-size: 26px;
+        color: #fff;
     }
 }
 
@@ -47,9 +60,11 @@
     font-size: 14px;
     color: $main-color;
     margin-bottom: 6px;
+
     &--font-weight-thin {
         font-weight: 100;
     }
+
     &:hover {
         color: $main-color !important;
         text-decoration: underline !important;
@@ -68,6 +83,7 @@
     font-size: 16px;
     font-weight: 400;
     transition: all .2s;
+
     &--second-type {
         width: fit-content;
         font-weight: 500;
@@ -77,11 +93,13 @@
         border: 1px solid $main-color;
         padding: 9px 38px;
         transition: all .3s;
+
         &:hover {
             color: #fff;
             background-color: $main-color;
         }
     }
+
     &--non-active {
         &:hover {
             cursor: inherit;
@@ -91,46 +109,58 @@
     }
 }
 
+.nesting-links {
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+    &__name {
+        font-weight: 300;
+        color: #808080;
+    }
+}
+
 @mixin pageBase {
     .container {
         margin: 0 auto;
         max-width: 1190px;
         padding: 0 25px;
         width: 100%;
-      }
-      
-      body {
+    }
+
+    body {
         position: relative;
         font-family: $default-font;
         color: $color-font;
-      }
-      
-      a {
+    }
+
+    a {
         color: $color-font;
         text-decoration: none;
-      }
-      
-      li {
+    }
+
+    li {
         list-style-type: none;
-      }
-      
-      @media(max-width:991px) {
+    }
+
+    @media(max-width:991px) {
         .container {
-          padding: 0 15px !important;
+            padding: 0 15px !important;
         }
-      }
-      
-      @media(max-width:630px) {
+    }
+
+    @media(max-width:630px) {
         .container {
-          padding: 0 8px !important;
+            padding: 0 8px !important;
         }
-      }
+    }
 }
 
 @media(max-width:420px) {
     .title {
         font-size: 22px !important;
     }
+
     .news-title {
         font-size: 16px;
     }

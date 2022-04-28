@@ -6,7 +6,7 @@ export function createVoting(formSelector) {
   const poll = form.querySelector('.poll')
 
   const answerVariantsBlock = poll.querySelector('.poll__variants-wrapper')
-  const preloader = poll.querySelector('.poll__preload')
+  const preloader = poll.querySelector('.preload')
   const resultItems = poll.querySelectorAll('.poll-result')
   const pollResultsBlock = poll.querySelector('.poll__results-wrapper')
   const submitVoteBtn = poll.querySelector('[data-id="vote-btn"]')

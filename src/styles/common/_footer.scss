@@ -1,6 +1,7 @@
 .footer {
     background-color: #24263C;
 }
+
 .footer-wrapper {
     padding: 0 10px;
     margin: 0 auto;
@@ -9,32 +10,47 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     img {
         padding: 13px 0;
+    }
+
+    .icon-facebook {
+        font-size: 28px;
+    }
+
+    .icon-vk1 {
+        font-size: 28px;
+        margin-left: 37px;
     }
 }
 
 .links {
     padding-top: 12px;
+
     &__item {
         transition: all .3s;
         padding: 10px 15px;
         color: #fff;
         cursor: pointer;
+
         &:hover {
             color: $main-color
         }
     }
 }
+
 @media(max-width:991px) {
     .footer {
         padding: 10px 0;
     }
+
     .footer-wrapper {
         img {
             display: none;
         }
     }
+
     .links {
         padding: 0;
     }
@@ -44,10 +60,12 @@
     .footer-wrapper {
         flex-direction: column;
     }
+
     .links {
         padding-bottom: 10px;
     }
 }
+
 @media(max-width:575px) {
     .links {
         display: flex;

@@ -72,6 +72,22 @@
             background-color: #1c1e2f;
         }
     }
+
+    .icon-small-arrow-right {
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 15px 10px;
+        color: #fff;
+        font-size: 20px;
+        background-color: #1e2032;
+        transition: all .3s;
+
+        &:hover {
+            background-color: #171826
+        }
+    }
 }
 
 .mobile-menu-wrapper {
@@ -285,6 +301,16 @@
             background-color: #1c1e2f !important;
         }
     }
+
+    .icon-small-arrow-left {
+        z-index: 1;
+        position: absolute;
+        top: 50%;
+        margin-left: 13px;
+        transform: translateY(-50%);
+        font-size: 25px;
+        color: rgb(214, 214, 214);
+    }
 }
 
 .header-search {
@@ -308,6 +334,7 @@
             border: 1px solid $main-color;
 
         }
+
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -319,6 +346,22 @@
     transition: all .3s;
     right: 16px;
     display: none;
+}
+
+.icon-arrow-left-menu {
+    font-size: 50px;
+    background-color: $main-color;
+    color: #fff;
+}
+
+.icon-trophy {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    margin-left: 13px;
+    transform: translateY(-50%);
+    font-size: 25px;
+    color: rgb(214, 214, 214);
 }
 
 .sub-navbar-list {
@@ -391,6 +434,47 @@
     }
 }
 
+.icon-hamburger-menu {
+    font-size: 30px;
+    color: $main-color;
+    display: none;
+    visibility: visible;
+    opacity: 1;
+    margin-right: 15px;
+}
+
+.icon-search {
+    color: #c2c2c2;
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1px;
+    padding: 10.5px 10px;
+    background-color: #fff;
+    position: absolute;
+    border: none;
+    border-left: 1px solid hsla(0, 0%, 76%, .2);
+    transition: all .3s;
+    border-radius: 0 4px 4px 0;
+
+    &:hover {
+        border-left: 1px solid $main-color;
+        color: $main-color;
+    }
+}
+
+.icon-search__active {
+    padding: 10.5px 5px;
+}
+
+.icon-search-mobile {
+    position: absolute;
+    transition: all .3s;
+    right: 16px;
+    display: none;
+}
+
+
 @media(min-width:575px) {
     .popular-clubs {
 
@@ -406,6 +490,7 @@
 
         }
     }
+
     .mobile-menu-wrapper {
         max-height: 489px;
     }
@@ -432,6 +517,10 @@
 
     .menu-list {
         display: none;
+    }
+
+    .icon-hamburger-menu {
+        display: block;
     }
 }
 
@@ -489,6 +578,8 @@
     .icon-search {
         height: 68%;
         right: 11px;
+        padding: 7px 10px;
+        right: 11px;
     }
 
     .header-search {
@@ -514,6 +605,7 @@
         left: -20px;
         height: calc(100vh - 50px);
     }
+
     .sub-active {
         top: 0;
         height: 100vh;
@@ -523,11 +615,21 @@
         left: 0;
     }
 
+    .icon-hamburger-menu {
+        margin-right: 8px;
+    }
+
+    .icon-search {
+        &__active {
+            padding: 7px 5px;
+        }
+    }
 
     .icon-search-mobile {
         cursor: pointer;
+        font-size: 30px;
         display: block;
-        fill: $main-color;
+        color: $main-color;
         padding: 10px;
         opacity: 1;
         visibility: visible;

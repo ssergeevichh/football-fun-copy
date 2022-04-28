@@ -1,14 +1,3 @@
-.column-group {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(100px, 1fr));
-    grid-template-rows: 590px;
-    column-gap: 24px;
-    padding: 40px !important;
-    padding-bottom: 10px !important;
-
-}
-
-
 .top-item {
     display: flex;
     flex-direction: column;
@@ -160,6 +149,19 @@
     &:hover {
         border-color: $main-color;
         box-shadow: 0 0 5px rgba(82, 193, 99, .4);
+        .icon-small-arrow-right {
+            color: $main-color;
+            transform: translateY(-50%) rotate(270deg);
+        }
+    }
+    .icon-small-arrow-right {
+        transition: all .2s;
+        position: absolute;
+        right: 15px;
+        transform: translateY(-50%) rotate(90deg);
+        top: 50%;
+        font-size: 12px;
+        color: #afb7d1;
     }
 }
 
@@ -210,177 +212,12 @@
     }
 }
 
-.tab-btns {
-    display: flex;
-    margin-bottom: 10px;
-
-    &__item {
-        line-height: 1.1;
-        border: none;
-        padding: 8px 30px;
-        transition: all .3s;
-
-        &:first-child {
-            width: 50%;
-            border-radius: 4px 0 0 4px;
-            border-right: 1px solid #e0e0e0;
-        }
-
-        &:last-child {
-            border-radius: 0 4px 4px 0;
-            width: 50%;
-        }
-
-        &--active {
-            background-color: $main-color;
-            color: #fff;
-
-            &:hover {
-                background-color: #3fb050;
-            }
-        }
-
-        &:not(.tab-btns__item--active) {
-            background-color: #F2F2FA;
-            color: $color-font;
-
-            &:hover {
-                background-color: #e8e8e8;
-            }
-        }
-    }
-}
-
-.tab-content {
-    height: calc(100% - 61px);
-    overflow-y: auto;
-    padding-right: 6px;
-
-    &::-webkit-scrollbar {
-        width: 6px;
-        background-color: #eeeeee;
-        border-radius: $border-radius;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: $main-color;
-        border-radius: $border-radius;
-
-    }
-
-    &__item {
-        transition: all .3s;
-        opacity: 0;
-        visibility: hidden;
-        margin-top: 10px;
-        display: none;
-
-        &--active {
-            border-radius: $border-radius;
-            border: 1px solid rgba(175, 183, 209, .3);
-            opacity: 1;
-            visibility: visible;
-            display: block;
-            margin-top: 0;
-        }
-    }
-}
-
-.column-group-table {
-    width: 100%;
-
-    thead {
-        color: #949494;
-        background-color: #eff1f6;
-
-        th {
-            padding: 6px 12px;
-            height: 50px;
-            font-weight: 400;
-
-            &:nth-child(3) {
-                width: 45px;
-            }
-
-            &:nth-child(4) {
-                width: 45px;
-            }
-        }
-    }
-
-    tbody {
-        tr {
-            color: #949494;
-            font-weight: 300;
-            font-size: 14px;
-            height: 32px;
-            border-bottom: 1px solid rgba(175, 183, 209, .3);
-
-            &:last-child {
-                border-bottom: none;
-            }
-
-            td {
-                padding: 9.5px 9px;
-            }
-
-            &:hover {
-                background-color: hsla(0, 0%, 96%, .75);
-            }
-        }
-    }
-
-    &__rating {
-        text-align: center;
-    }
-
-    &__team {
-        &:hover {
-            span {
-                text-decoration: underline;
-                color: $main-color;
-            }
-        }
-
-        span {
-            transition: all .2s;
-            font-weight: 300;
-            color: $color-font;
-        }
-    }
-
-    &__img {
-        margin-right: 10px;
-        height: 28px;
-        width: 28px;
-        object-fit: cover;
-    }
-
-    &__player {
-        border-radius: $border-radius;
-        margin-right: 5px;
-        height: 36px;
-        width: 36px;
-        object-fit: cover;
-    }
-}
-
-
 .news-slider-mobile {
     display: none;
 }
 
 
 @media(max-width:1100px) {
-    .column-group {
-        grid-template-columns: minmax(100px, 1fr);
-        grid-template-rows: auto;
-
-        &__item {
-            margin-bottom: 40px;
-        }
-    }
-
     .post-item {
         height: auto;
         width: 300px;

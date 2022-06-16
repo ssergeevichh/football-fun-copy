@@ -1,8 +1,8 @@
 @import './common.scss';
 
 @import 'base/variables';
-@import 'base/_icons';
 @import 'base/reuse-parts';
+@import 'base/_icons';
 @import 'base/slider';
 @import 'base/statistics-tabs';
 
@@ -10,6 +10,8 @@
 @import 'common/header';
 @import 'common/column-group';
 @import 'common/top-news';
+@import 'common/pagination-block';
+@import 'common/footer';
 
 @import 'parts/news.page/news-all';
 

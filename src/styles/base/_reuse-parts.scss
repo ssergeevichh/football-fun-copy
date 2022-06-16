@@ -12,6 +12,11 @@
         color: $main-color;
     }
 
+    &--md-sizing {
+        font-weight: 700;
+        font-size: 26px;
+    }
+
 }
 
 .desc {
@@ -55,6 +60,45 @@
     }
 }
 
+input {
+    width: 100%;
+    font-weight: 300;
+    color: #414141;
+    border: none;
+    border: 1px solid hsla(0, 0%, 76%, .2);
+    padding: 12px 40px 11px 13px;
+    border-radius: $border-radius;
+    transition: all .3s;
+
+    &:focus {
+        outline: none;
+        border: 1px solid $main-color;
+    }
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input[type="radio"] {
+    padding: 0;
+    width: auto;
+
+    &:focus {
+        outline: none;
+        border-radius: 10px;
+    }
+}
+
+select {
+    position: relative;
+    padding: 12px 55px 12px 12px;
+    border: 1px solid #afb7d1;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s;
+}
+
 .category-link {
     display: inline-flex;
     font-size: 14px;
@@ -84,6 +128,10 @@
     font-weight: 400;
     transition: all .2s;
 
+    &:hover {
+        background-color: #3fb050;
+    }
+
     &--second-type {
         width: fit-content;
         font-weight: 500;
@@ -98,6 +146,13 @@
             color: #fff;
             background-color: $main-color;
         }
+    }
+
+    &--md-btn {
+        width: auto;
+        padding: 17px 50px;
+        font-size: 16px;
+        font-weight: 400;
     }
 
     &--non-active {
@@ -120,9 +175,9 @@
     transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
-  }
-  
-  .preload div {
+}
+
+.preload div {
     box-sizing: border-box;
     display: block;
     position: absolute;
@@ -132,29 +187,29 @@
     border-radius: 50%;
     animation: preload 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: $main-color transparent transparent transparent;
-  }
-  
-  .preload div:nth-child(1) {
+}
+
+.preload div:nth-child(1) {
     animation-delay: -0.45s;
-  }
-  a
-  .preload div:nth-child(2) {
+}
+
+a .preload div:nth-child(2) {
     animation-delay: -0.3s;
-  }
-  
-  .preload div:nth-child(3) {
+}
+
+.preload div:nth-child(3) {
     animation-delay: -0.15s;
-  }
-  
-  @keyframes preload {
+}
+
+@keyframes preload {
     0% {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-  
+
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}
 
 .icon-calendar,
 .icon-view-eye,

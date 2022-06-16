@@ -319,25 +319,7 @@
     max-width: 100%;
 
     &__input {
-        width: 100%;
         font-size: 12px;
-        font-weight: 300;
-        color: #414141;
-        border: none;
-        border: 1px solid hsla(0, 0%, 76%, .2);
-        padding: 12px 40px 11px 13px;
-        border-radius: $border-radius;
-        transition: all .3s;
-
-        &:focus {
-            outline: none;
-            border: 1px solid $main-color;
-
-        }
-
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
     }
 }
 
